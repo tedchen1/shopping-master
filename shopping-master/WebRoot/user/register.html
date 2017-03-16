@@ -1,0 +1,39 @@
+<#include "/common/head.html" />
+
+        <link href="/css/my.css" rel="stylesheet">
+        <script type="text/javascript" src="/js/jquery.js"></script>
+        <script type="text/javascript" src="/js/my.js"></script>
+        <div class="span4 offset4" >
+       	    <form class="well form-inline " action="/user/register" method="post" >
+       	    	<h1>用户注册</h1>
+			    <input type="text" class="input-large" placeholder="用户名" name="username" id="username">
+			    <input type="button" class="btn" value="检测" onclick="verify()">
+       
+        		<!--正常提示 Start-->
+                <!-- class属性用于连接css  -->
+                <div id="div_uname_rule" >
+                       <br/>
+                       <span class="alert">6~18个字符，包括字母、数字、下划线</span>
+                </div>
+                <!--正常提示 End-->
+                <!--错误提示 Start-->
+                 <div id="div_uname_err_info" ></div>  
+                <!--错误提示 End--><br/>
+			    
+			    <input type="password" class="input-large" placeholder="密码" name="password" id="password"><br/>
+			    <span></span><br/>
+			    
+			    <input type="password" class="input-large" placeholder="确认密码" name="password1" id="password1"><br/>
+			    <span></span><br/>
+			   
+			    <input type="text" class="input-large" placeholder="电话" name="phone"><br/>
+			    <span></span><br/>
+			    
+			    <input type="text" class="input-xlarge" placeholder="地址" name="addr"><i class="icon-home"></i><br/>
+			    <span></span><br/>
+			    <input type="hidden"  name="reg" value="ok"/>
+			    <button type="submit" class="btn btn-primary" >确认</button>
+    		</form>
+        </div>
+		
+<#include "/common/tail.html" />

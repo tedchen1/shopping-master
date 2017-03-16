@@ -1,0 +1,34 @@
+<#include "common/head.html">
+	<div class="container">
+		<div class="span10 pull-right">
+			<div class="row ">
+				<#if products ??>
+					<h3 class="offset1">${info!"最新商品"}</h3>
+					<#assign x=0 />
+					<table class="table ">
+					<tbody>
+						<tr>	
+						<#list products as p>
+							<#assign x=x+1 />
+							<td >
+							  		<a href="/product/detail/${p.id}" class="text-center">
+							  		<center>
+							  		<img   src="/img/product/${p.id}.jpg" width="160px"><br>
+							  		</center>
+							  		</a>
+							  		<p class="text-center"><strong>${p.name}</strong></p>
+							  		<p class="text-center"><a>会员价:${p.memberprice}元</a></p>
+				  			</td>
+				  			<#if (x%5=0)>
+				  				</tr>
+				  				<tr>
+				  			</#if>
+				  	</#list>
+				  	</tr>
+				</tbody>
+				</table>	
+				</#if>
+			</div>
+		</div>
+	</div>
+<#include "common/tail.html">

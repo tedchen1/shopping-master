@@ -1,0 +1,48 @@
+<!DOCTYPE >
+<html>
+	<head>
+		 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		 <link rel="stylesheet" href="/css/bootstrap.css"/>
+		 <script src="/js/jquery.js" > </script>
+		<style type="text/css">
+		@import url(http://fonts.googleapis.com/css?family=Arvo);
+		body {
+		  background: #f8fcd4;
+		  background: radial-gradient(center, ellipse cover,  #f8fcd4 19%,#dbfacb 100%);
+		  background-attachment: fixed;
+		}
+		</style>
+</head>
+<body>
+	<div class="span4" >
+		<h3 >添加产品</h3>
+		<form action="add" class="well form-horizontal" method="post">	
+			<label ><strong>产品名称</strong></label>
+			<input type="text" style="height:30px" required="required" name="name"  /><br>
+			<label ><strong>产品描述</strong></label>
+			<textarea  name="descr"></textarea><br/><br/>
+			<label ><strong>正常价格</strong></label>
+			<input type="number"  style="height:30px" step=10 required="required" name="normalprice"  /><br>
+			<label ><strong>会员价格</strong></label>
+			<input type="number" style="height:30px" step=10 required="required" name="memberprice"  /><br>
+			<input type="hidden"  name="add" value="ok" /><br>
+			<label ><strong>产品类型</strong></label>
+			<#if categories ?? >
+				<select name="categoryId">
+					<#list categories as c>
+							<option value="${c.id}">${c.name}</option>
+					</#list>
+				</select>
+				<br/><br/>
+			<#else>
+				<input type="text" name="categoryId"/>
+			</#if>
+			
+			<input type="submit" class="btn btn-primary" value="添加"></input>
+		</form>
+		<#if info ??> 
+			<h2>${info}</h2>
+		</#if>
+	</div>
+</body>
+</html>
